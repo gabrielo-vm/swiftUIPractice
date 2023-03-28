@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Constants {
+    
+    struct Urls {
+        static let baseURL = ""
+        static let petListing = "pet-listing"
+    }
+    
+}
