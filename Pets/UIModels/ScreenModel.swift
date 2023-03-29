@@ -22,7 +22,7 @@ struct ComponentModel: Decodable {
 
 struct ScreenModel: Decodable {
     let pageTitle: String
-    let componentGroup: [ComponentModel]
+    let components: [ComponentModel]
 }
 
 extension ScreenModel {
@@ -31,7 +31,7 @@ extension ScreenModel {
         
         var components:  [UIComponent] = []
         
-        for component in self.componentGroup {
+        for component in self.components {
             switch component.type {
             case .featuredImage:
                 print("FeaturedImage")
