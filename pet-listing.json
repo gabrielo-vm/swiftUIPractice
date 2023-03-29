@@ -1,0 +1,12 @@
+
+{
+        "pageTitle": "Pets",
+        "components": [
+            {
+                "type": "featuredImage",
+                "data": {
+                    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7oFgafT0xlV1zS2CXLY0mAmC5Jgiu93HXMA&usqp=CAU"
+                }
+            }
+        ]
+    }
