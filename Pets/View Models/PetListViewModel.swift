@@ -7,19 +7,20 @@
 
 import Foundation
 
+@MainActor
 class PetListViewModel: ObservableObject {
     
-    private var service: Webservice
+    private var service: ServiceProtocol
     
     @Published var components: [UIComponent] = []
     
-    init(service: Webservice){
+    init(service: ServiceProtocol){
         self.service = service
     }
     
     func load() async {
         do {
-            let screenModel = try await service.load(resource: Constants.Urls.petListing)
+            let screenModel = try await service.load(Constants.ScreenResource.petListing)
             components = try screenModel.buildComponents()
             
         } catch{
