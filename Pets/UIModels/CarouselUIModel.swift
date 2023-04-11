@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CarouselUIModel: Decodable {
+    
+    let imageUrls: [URL]
+    let action: Action
+}
