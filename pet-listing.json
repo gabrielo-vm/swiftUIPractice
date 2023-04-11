@@ -7,6 +7,20 @@
                 "data": {
                     "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7oFgafT0xlV1zS2CXLY0mAmC5Jgiu93HXMA&usqp=CAU"
                 }
+            } ,
+            {
+                "type": "carousel",
+                "data": {
+                    "imageUrls": [
+                    "https://vignette.wikia.nocookie.net/yugioh/images/f/f1/SummonedSkull-SYE-EN-C-UE.png/revision/latest/scale-to-width-down/335?cb=20130804044723",
+                    "https://vignette.wikia.nocookie.net/yugioh/images/f/f2/DarkRulerHaDes-BP01-EN-C-1E.png/revision/latest/scale-to-width-down/300?cb=20120616113335",
+                    "https://i.pinimg.com/236x/2d/e0/b7/2de0b7946bb7c8427018694ce5464709.jpg"
+                    ],
+                    "action": {
+                        "type": "sheet",
+                        "destination": "petDetail"
+                    }
+                }
             }
         ]
     }
