@@ -17,7 +17,6 @@ struct FeaturedImageComponent: UIComponent {
     }
     
     func render() -> AnyView {
-//        AnyView(Text("Hello"))
         AsyncImage(url: uiModel.imageUrl) { image in
             
             image.resizable()
