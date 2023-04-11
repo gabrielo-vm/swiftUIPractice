@@ -17,7 +17,7 @@ struct ContentView: View {
                 ForEach(vm.components, id: \.uniqueID) { component in
                     component.render()
                 }
-                .navigationTitle("Pets")
+                .navigationTitle("Yugioh")
             }.task {
                 await vm.load()
             }
