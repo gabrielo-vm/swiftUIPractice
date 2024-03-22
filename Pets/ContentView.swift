@@ -13,12 +13,14 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(vm.components, id: \.uniqueID) { component in
+            List {
+                ForEach(vm.components, id: \.id) { component in
                     component.render()
                 }
                 .navigationTitle("Yugioh")
-            }.task {
+            }
+            .listStyle(.plain)
+            .task {
                 await vm.load()
             }
         }

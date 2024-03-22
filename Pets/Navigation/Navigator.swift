@@ -27,13 +27,21 @@ struct SheetView<V: View>: View {
 
 class Navigator {
     
-    static func perform<V:View>(action:Action, content: @escaping () -> V) -> AnyView {
+    static func perform<V:View>(action:Action, payload: Any? = nil, content: @escaping () -> V) -> AnyView {
         
         var destinationView: AnyView!
         
         switch action.destination {
         case .petDetail:
-            destinationView = Text("hello").toAnyView()
+            if let payload = payload as? CarouselRowUIModel {
+                destinationView = CardDetailScreen(id: payload.petId).toAnyView()
+            }else if let payload = payload as? RowUIModel {
+                destinationView = CardDetailScreen(id: payload.id)
+                    .navigationTitle(payload.title)
+                    .toAnyView()
+            }else {
+                destinationView = EmptyView().toAnyView()
+            }
         }
         
         switch action.type {
@@ -42,6 +50,12 @@ class Navigator {
             return SheetView(content: {
                 content()
             }, destinationView: destinationView).toAnyView()
+        case .push :
+            return NavigationLink {
+                destinationView
+            } label: {
+                content()
+            }.toAnyView()
         }
     }
     

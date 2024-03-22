@@ -8,6 +8,5 @@
 import Foundation
 
 protocol ServiceProtocol {
-    
     func load(_ resourceName: String ) async throws -> ScreenModel
 }

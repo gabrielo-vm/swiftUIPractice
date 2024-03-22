@@ -15,6 +15,10 @@ struct Constants {
         static let host = "localhost"
         static let petListing = "pet-listing"
         
+        static func cardDetail(id: Int) -> String {
+            return "card-detail/\(id)"
+        }
+        
         static func resource(for resourceName: String)  -> URL? {
             
             var components = URLComponents()

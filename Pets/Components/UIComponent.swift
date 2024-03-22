@@ -1,7 +1,7 @@
 //
 //  UIComponent.swift
 //  Pets
-//
+// 
 //  Created by Gabriel Valdez Mendoza on 28/03/23.
 //
 
@@ -10,6 +10,6 @@ import SwiftUI
 
 protocol UIComponent {
     
-    var uniqueID: String { get }
+    var id: UUID { get }
     func render() -> AnyView
 }

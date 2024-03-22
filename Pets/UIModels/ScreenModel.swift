@@ -14,10 +14,13 @@ enum ComponentError: Error {
 enum ComponentType: String, Decodable {
     case featuredImage
     case carousel
+    case textRow
+    case rating
+    case list
 }
 
 struct ComponentModel: Decodable {
-    let type: ComponentType
+    let type: ComponentType?
     let data: [String: Any]
     
     private enum CodingKeys: CodingKey {
@@ -27,7 +30,7 @@ struct ComponentModel: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.type = try container.decode(ComponentType.self, forKey: .type)
+        self.type = try? container.decode(ComponentType.self, forKey: .type)
         self.data = try container.decode(JSON.self, forKey: .data).value as! [String: Any]
     }
 }
@@ -46,7 +49,6 @@ extension ScreenModel {
         for component in self.components {
             switch component.type {
             case .featuredImage:
-                print("FeaturedImage")
                 guard let uiModel: FeaturedImageUIModel = component.data.decode() else {
                     throw ComponentError.decodingError
                 }
@@ -58,6 +60,24 @@ extension ScreenModel {
                     throw ComponentError.decodingError
                 }
                 components.append(CarouselComponent(uiModel: uiModel))
+            case .textRow:
+                guard let uiModel: TextRowUIModel = component.data.decode() else {
+                    throw ComponentError.decodingError
+                }
+                
+                components.append(TextRowComponent(uiModel: uiModel))
+            case .rating:
+                guard let uiModel: RatingRowUIModel = component.data.decode() else {
+                    throw ComponentError.decodingError
+                }
+                components.append(RatingComponent(uiModel: uiModel))
+            case .list:
+                guard let uiModel: ListUIModel = component.data.decode() else {
+                    throw ComponentError.decodingError
+                }
+                components.append(ListComponent(uiModel: uiModel))
+            case .none:
+                components.append(EmptyComponent())
             }
         }
         

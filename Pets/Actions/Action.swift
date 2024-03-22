@@ -9,6 +9,7 @@ import Foundation
 
 enum ActionType: String , Decodable {
     case sheet
+    case push
 }
 
 struct Action: Decodable {

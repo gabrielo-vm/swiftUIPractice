@@ -12,9 +12,7 @@ struct FeaturedImageComponent: UIComponent {
     
     let uiModel: FeaturedImageUIModel
     
-    var uniqueID: String {
-        return ComponentType.featuredImage.rawValue
-    }
+    let id = UUID()
     
     func render() -> AnyView {
         AsyncImage(url: uiModel.imageUrl) { image in

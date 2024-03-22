@@ -8,7 +8,6 @@
 import Foundation
 
 class LocalService: ServiceProtocol {
-    
     func load(_ resourceName: String) async throws -> ScreenModel {
         
         guard let path = Bundle.main.path(forResource: resourceName, ofType: "json")else {
@@ -20,6 +19,4 @@ class LocalService: ServiceProtocol {
         
         return screenModel
     }
-    
-    
 }
