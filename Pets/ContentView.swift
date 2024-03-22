@@ -24,7 +24,6 @@ struct ContentView: View {
                 await vm.load()
             }
         }
-        
     }
 }
 
